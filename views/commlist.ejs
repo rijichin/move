@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <a href="../public"></a>
+ <script src="/node_modules/requirejs/require.js" defer async="true" data-main="/javascripts/main.js" id="currentpage" targetpage="/javascripts/commlist.js"></script>
+</head>
+<body>
+  <!-- 电影列表页 -->
+  <%- include("head",{title:"list"}) %>
+  <div class="container-fluid container">
+    <table class="table table-bordered table-hover">
+      <caption class="text-info h2">评论列表</caption>
+        <tr class="text-danger text-center">
+          <td>序号</td>
+          <td>电影标题</td>
+          <td>电影</td>
+          <td>评论标题</td>
+          <td>评论内容</td>
+          <td>评论人</td>
+          <td>时间</td>
+          <td>操作1</td>
+          <td>操作2</td>
+        </tr>
+        <%if(result.length>0){%>
+          <% result.forEach((value,index)=>{ %>
+            <tr class="text-center">
+              <td style="line-height: 100px;"><%- index+1 %></td>
+              <td><%- value.mtitle %></td>
+              <td><img style="width:100px;height: 100px;" src="<%- value.mpic.replace(/img7/,'img3') %>" alt=""></td>
+              <td><%- value.title %></td>
+              <td><%- value.content %></td>
+              <td><%- value.username %></td>
+              <td><%- value.time %></td>
+              <% if(username===value.username){%>
+                <td><button class="btn btn-danger deletItem" mid="<%- value.mid  %>">删除</button></td>
+              <%}else{%>
+                <td><button disabled class="btn btn-danger">无权限</button></td>
+              <%}%>
+              <%if(username===value.username){%>
+                <td><button class="btn btn-warning changItem" mid="<%- value.mid %>">修改</button></td>
+              <%}else{%>
+                <td><button disabled class="btn btn-warning">无权限</button></td>
+              <%}%>
+            </tr>
+          <% }) %>
+        <%}else{%>
+          <tr class="text-center">
+            <td colspan="9">暂无评论</td>
+          </tr>
+        <%}%>
+    </table>
+  </div>
+  <div class="modal fade" id="delteModel" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          你确定要删除吗
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary deleteSure">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

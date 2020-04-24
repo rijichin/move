@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="/node_modules/requirejs/require.js" defer async="true" data-main="/javascripts/main.js" id="currentpage" targetpage="/javascripts/commentjs.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <%- include("head",{title:"list"}) %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-5">
+        <h2 class="text-info">电影详情</h2>
+        <img style="display:block;width:100%;height:320px" src="<%- result.images.large.replace(/img7/,'img3') %>" alt="">
+        <div class="caption clearfix">
+          <h4 class="text-primary pull-right"><%- result.year %></h4>
+          <h4 class="text-danger"><%- result.title %></h4>
+          <p class="text-success"> 评分: <%- result.rating.average %></p>
+          <p class="text-info"> 导演: <%- result.directors[0].name %></p>
+          <p class="text-warning"> 分类: <%- result.genres %></p>
+      </div>
+      </div>
+      <div class="col-md-7">
+        <h2 class="text-info">电影评论</h2>
+        <form action="">
+          <div class="form-group">
+            <label for="commentTitle">标题</label>
+            <input type="text" class="form-control" id="commentTitle" placeholder="评论标题">
+          </div>
+          <div class="form-group">
+            <label for="commentContent">评论内容</label>
+            <textarea style="resize: none;" name="" id="commentContent" cols="30" rows="13" class="form-control"></textarea>
+          </div>
+          <button mid="<%- result.id %>" type="button" class="btn btn-primary subComment">提交评论</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+          是否确定提交
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="button" class="btn btn-primary querybtn">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="susModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+         提交成功，是否跳转到评论页
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default"  data-dismiss="modal" onclick="location.reload()">取消</button>
+          <button type="button" class="btn btn-primary susquery">确定</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="failModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        </div>
+        <div class="modal-body">
+         提交失败
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

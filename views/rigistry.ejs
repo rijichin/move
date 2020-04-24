@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+ <script src="/node_modules/requirejs/require.js" defer async="true" data-main="/javascripts/main.js" id="currentpage" targetpage="/javascripts/rigistry.js"></script>
+</head>
+<body>
+  <%- include("head",{title:"rigistry"}) %>
+  <div class="container-fluid">
+    <div class="col-md-4">
+      <form>
+        <div class="form-group">
+          <label for="usernameInput">username</label>
+          <input type="text" name="username" class="form-control" id="usernameInput" placeholder="username">
+          <span></span>
+        </div>
+        <div class="form-group">
+          <label for="nicknameInput">nickname</label>
+          <input type="text" name="nickname" class="form-control" id="nicknameInput" placeholder="nickname">
+        </div>
+        <div class="form-group">
+          <label for="PasswordInput">Password</label>
+          <input type="password" name="password" class="form-control" id="PasswordInput" placeholder="password">
+        </div>
+        <div class="form-group">
+          <label for="repeatInput">Repeat Password</label>
+          <input type="password" name="repassword" class="form-control" id="repeatInput" placeholder="Repeat Password">
+        </div>
+        
+        <button type="button"  class="btn btn-danger regibtn">注册</button>
+        <button type="button" onclick="location.href='/login'" class="btn btn-success">登录</button>
+      </form>
+    </div>
+  </div>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script>
+  </script>
+</body>
+</html>

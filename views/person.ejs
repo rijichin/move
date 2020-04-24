@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="/node_modules/requirejs/require.js" defer async="true" data-main="/javascripts/main.js" id="currentpage" targetpage="/javascripts/changeInfo.js"></script>
+</head>
+<body>
+  <%- include("head",{title:"my"}) %>
+
+ <div class="col-md-4">
+  <form>
+    <div class="form-group">
+      <label>username</label>
+      <input type="text"disabled class="form-control"  value="<%- username %>">
+    </div>
+    <div class="form-group">
+      <label for="nicknameInput">nickname</label>
+      <input type="text" name="nickname" class="form-control" value="<%- nickname %>" id="nicknameInput" placeholder="nickname">
+    </div>
+    <div class="form-group">
+      <label for="userageInput">age</label>
+      <input type="text" name="userage" class="form-control" value="<%- age %>" id="userageInput" placeholder="userage">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" value="<%- email %>" placeholder="Email">
+    </div>
+    <button type="button" class="btn btn-info changeInfo">修改个人信息</button>
+    <button type="button" class="btn btn-danger" onclick="location.href='/resetpwd'">重置密码</button>
+  </form>
+ </div>
+
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>

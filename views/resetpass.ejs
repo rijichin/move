@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+<%- include("head",{title:"my"}) %>
+<div class="container-fluid">
+  <div class="col-md-4">
+    <form method="POST" action="/users/resetpwd">
+      <div class="form-group">
+        <label for="oldpassword">oldpassword</label>
+        <input type="password" name="oldpassword" class="form-control" id="oldpassword" placeholder="请输入旧密码">
+      </div>
+      <div class="form-group">
+        <label for="newpassword">newPassword</label>
+        <input type="password" name="newpassword" class="form-control" id="newpassword" placeholder="输入新密码">
+      </div>
+      <button type="submit" class="btn btn-success">修改密码</button>
+    </form>
+  </div>
+</div>
+<style>
+    body{
+      padding-top:70px;
+  }
+</style>
+</body>
+</html>

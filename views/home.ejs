@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+  <style>
+  </style>
+</head>
+<body>
+  <%-  include("head",{title:"home"})  %>
+  
+  <%if(username){%>
+    <h4>欢迎您，<%-username %> </h4>
+    <div>
+      <button type="button" class="btn btn-danger" onclick="location.href='/logout'">注销</button>
+      <button type="button" class="btn btn-info" onclick="location.href='/'">电影主页</button>
+    </div>
+  <%}else{%>
+    <h4>您还没有登录</h4>
+    <div>
+      <button type="button" class="btn btn-danger logoutBtn" onclick="location.href='/rigistry'">注册</button>
+      <button type="button" class="btn btn-success logoutBtn" onclick="location.href='/login'">登录</button>
+    </div>
+  <%}%>
+  <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdn.bootcss.com/twitter-bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
